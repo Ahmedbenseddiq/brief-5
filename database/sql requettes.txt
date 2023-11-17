@@ -1,0 +1,74 @@
+CREATE TABLE Utilisateurs (
+    id_utilisateur INT AUTO_INCREMENT PRIMARY KEY,
+    identifiant VARCHAR(50) UNIQUE NOT NULL,
+    mot_de_passe VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Categories (
+    id_categorie INT AUTO_INCREMENT PRIMARY KEY,
+    nom_categorie VARCHAR(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE Produits (
+    id_produit INT AUTO_INCREMENT PRIMARY KEY,
+    reference VARCHAR(50) UNIQUE NOT NULL,
+    image VARCHAR(255),
+    libelle VARCHAR(100) NOT NULL,
+    prix_unitaire DECIMAL(10, 2) NOT NULL,
+    quantite_min INT NOT NULL,
+    quantite_stock INT NOT NULL,
+    id_categorie INT,
+    FOREIGN KEY (id_categorie) REFERENCES Categories(id_categorie)
+);
+
+INSERT INTO Utilisateurs (identifiant, mot_de_passe) VALUES
+('ahmed', '1234'),
+('kamal', '5678'),
+('bilal', '2023'),
+('ismail', '4848');
+
+INSERT INTO Categories (nom_categorie) VALUES
+('Téléphones & Tablettes'),
+('Appareils Électroménagers'),
+('Accessoires Tech'),
+('Technologie Spécialisée');
+
+
+INSERT INTO Produits (reference, image, libelle, prix_unitaire, quantite_min, quantite_stock, id_categorie) VALUES
+('S20U001', '\assets\images\téléchargement.jpg', 'Samsung Galaxy S20 Ultra', 1099.99, 5, 20, 1),
+('iPadPro001', '\assets\images\téléchargement (1).jpg', 'iPad Pro (12,9 pouces)', 999.00, 3, 15, 2),
+('OP9P001', '\assets\images\téléchargement (2).jpg', 'OnePlus 9 Pro', 899.00, 4, 10, 1),
+('TabS7P001', '\assets\images\téléchargement (3).jpg', 'Samsung Galaxy Tab S7+', 849.99, 3, 8, 2);
+
+INSERT INTO Produits (reference, image, libelle, prix_unitaire, quantite_min, quantite_stock, id_categorie) VALUES
+('RefFrench001', '\assets\images\téléchargement (4).jpg', 'Réfrigérateur à Portes Françaises', 1799.00, 2, 10, 3),
+('Dishwasher001', '\assets\images\téléchargement (5).jpg', 'Lave-vaisselle Intégré en Acier Inoxydable', 849.00, 3, 12, 3),
+('Washer001', '\assets\images\téléchargement (6).jpg', 'Machine à Laver Frontale', 699.99, 4, 8, 3),
+('Microwave001', '\assets\images\téléchargement (7).jpg', 'Four à Micro-ondes avec Gril', 299.00, 6, 15, 3);
+
+INSERT INTO Produits (reference, image, libelle, prix_unitaire, quantite_min, quantite_stock, id_categorie) VALUES
+('AirPodsPro001', '\assets\images\téléchargement (8).jpg', 'Écouteurs sans Fil Apple AirPods Pro', 249.00, 5, 18, 4),
+('MacBookHousse001', '\assets\images\téléchargement (9).jpg', 'Housse de Protection pour MacBook Pro 13 pouces', 39.99, 8, 25, 4),
+('AnkerUSBC001', '\assets\images\téléchargement (10).jpg', 'Câble de Charge USB-C Anker', 12.99, 10, 30, 4),
+('iPhoneCase001', '\assets\images\téléchargement (11).jpg', 'Étui de Protection pour iPhone 12', 19.99, 6, 20, 4);
+
+INSERT INTO Produits (reference, image, libelle, prix_unitaire, quantite_min, quantite_stock, id_categorie) VALUES
+('REF302', '\assets\images\téléchargement (12).jpg', 'Drone de Surveillance', 899.99, 2, 8, 4),
+('REF303', '\assets\images\téléchargement (13).jpg', 'Casque de Réalité Virtuelle', 349.99, 3, 9, 4),
+('REF304', '\assets\images\téléchargement (14).jpg', 'Kit Robotique Éducatif', 129.99, 5, 12, 4);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
